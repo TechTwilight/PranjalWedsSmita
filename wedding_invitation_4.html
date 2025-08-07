@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pranjal ❤️ Smita - Wedding Invitation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .background-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out, transform 20s ease-in-out;
+    }
+
+    .background-container img.active {
+      opacity: 0.5;
+      animation: kenburns 20s ease-in-out infinite;
+    }
+
+    @keyframes kenburns {
+      0% { transform: scale(1) translate(0, 0); }
+      100% { transform: scale(1.2) translate(-5%, -5%); }
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 40px;
+      animation: fadeIn 1.5s ease;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4em;
+      color: #ffcad4;
+    }
+
+    header h2 {
+      font-size: 1.5em;
+      margin-top: 10px;
+      color: #ffeaa7;
+    }
+
+    .glass-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px auto;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      text-align: center;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .glass-box h3 {
+      font-size: 1.6em;
+      color: #f5f5f5;
+      margin-bottom: 10px;
+    }
+
+    .glass-box p {
+      font-size: 1.2em;
+      color: #ddd;
+    }
+
+    .countdown {
+      font-size: 1.8em;
+      color: #ff7675;
+      margin-top: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    .hashtag {
+      font-size: 1.4em;
+      margin-top: 20px;
+      color: #e84393;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px auto;
+      padding: 12px 20px;
+      background: #fd79a8;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #e84393;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #2d3436;
+      font-weight: bold;
+      color: #fab1a0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.05); opacity: 0.7; }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 3em;
+      }
+      .glass-box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="background-container">
+    <img src="photo/bg1.jpg" class="active" />
+    <img src="photo/bg2.jpg" />
+    <img src="photo/bg3.jpg" />
+  </div>
+
+  <header>
+    <h1>Pranjal ❤️ Smita</h1>
+    <h2>We're Getting Married!</h2>
+    <div class="countdown" id="countdown"></div>
+  </header>
+
+  <div class="glass-box">
+    <h3>📅 Wedding Date</h3>
+    <p>22nd November 2025</p>
+    <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pranjal+%E2%9D%A4%EF%B8%8F+Smita+Wedding&dates=20251122T065000Z/20251122T083000Z&details=Join+us+in+celebrating+our+special+day!&location=Shantai+Udyan+Mangal+Karyalay,+Pune" target="_blank">Save the Date</a>
+  </div>
+
+  <div class="glass-box">
+    <h3>📍 Venue</h3>
+    <p>Shantai Udyan Mangal Karyalay, Pune</p>
+    <a class="btn" href="https://www.google.com/maps?q=Shantai+Udyan+Mangal+Karyalay,+Pune" target="_blank">View Location</a>
+  </div>
+
+  <div class="glass-box">
+    <h3>⏰ Time</h3>
+    <p>12:20 PM onwards</p>
+  </div>
+
+  <div class="glass-box hashtag">
+    <p>💬 #CommentToCommitment</p>
+  </div>
+
+  <footer>
+    With love, Pranjal & Smita ❤️
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = () => {
+      const weddingDate = new Date('2025-11-22T12:20:00');
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "We're Married! 💍";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('countdown').innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s to go!`;
+    };
+
+    setInterval(countdown, 1000);
+    countdown();
+
+    // Background Carousel
+    const images = document.querySelectorAll('.background-container img');
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 10000);
+  </script>
+</body>
+</html>

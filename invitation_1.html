@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranjal ❤️ Smita - Wedding Invitation</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #fff5f5, #ffe0e0);
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3em;
+      color: #c0392b;
+      margin: 0;
+    }
+
+    header h2 {
+      font-size: 1.5em;
+      color: #8e44ad;
+      margin-top: 10px;
+    }
+
+    .countdown {
+      text-align: center;
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #444;
+    }
+
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeInUp 1.5s ease-in-out;
+    }
+
+    .section h3 {
+      font-size: 1.8em;
+      color: #2c3e50;
+    }
+
+    .section p {
+      font-size: 1.2em;
+      color: #555;
+    }
+
+    .hashtag {
+      font-size: 1.3em;
+      color: #e84393;
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fdeaea;
+      color: #c0392b;
+      font-weight: bold;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pranjal ❤️ Smita</h1>
+    <h2>We're Getting Married!</h2>
+    <div class="countdown" id="countdown"></div>
+  </header>
+
+  <div class="section">
+    <h3>Wedding Date</h3>
+    <p>22nd November 2025</p>
+  </div>
+
+  <div class="section">
+    <h3>Venue</h3>
+    <p>Shantai Udyan Mangal Karyalay, Pune</p>
+  </div>
+
+  <div class="section">
+    <h3>Time</h3>
+    <p>12:20 PM onwards</p>
+  </div>
+
+  <div class="section hashtag">
+    <p>#CommentToCommitment</p>
+  </div>
+
+  <footer>
+    With love, Pranjal & Smita ❤️
+  </footer>
+
+  <script>
+    // Countdown Timer
+    const countdown = () => {
+      const weddingDate = new Date('2025-11-22T12:20:00');
+      const now = new Date();
+      const diff = weddingDate - now;
+
+      if (diff <= 0) {
+        document.getElementById('countdown').innerHTML = "We're Married! 💍";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById('countdown').innerHTML =
+        `${days}d ${hours}h ${minutes}m ${seconds}s to go!`;
+    };
+
+    setInterval(countdown, 1000);
+    countdown();
+  </script>
+</body>
+</html>
